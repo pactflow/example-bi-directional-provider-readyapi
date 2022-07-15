@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1754db62-3016-4960-b95c-35c0738799a9" created="3.30.0" activeEnvironment="localhost" name="Project 1" updated="3.30.0 2022-03-16T13:04:41Z" encryptionMode="Not encrypted" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local">
+      <![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="Product API Test Suite"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="/Applications/ReadyAPI-3.30.0.app/Contents/Resources/app/bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]>
+    </con:setting>
+  </con:settings>
+  <con:interface xsi:type="con:RestService" id="3f502c3f-e8cd-4974-a5af-42751bbf4e42" name="Product API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="file:/Users/saf/dev/pactflow/example-bi-directional-provider-readyapi/oas/products.yml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>Pactflow Product API demo</con:description>
+    <con:settings />
+    <con:definitionCache type="TEXT" rootPart="file:/Users/saf/dev/pactflow/example-bi-directional-provider-readyapi/oas/products.yml">
+      <con:part>
+        <con:url>file:/Users/saf/dev/pactflow/example-bi-directional-provider-readyapi/oas/products.yml</con:url>
+        <con:content>{"openapi":"3.0.1","info":{"title":"Product API","description":"Pactflow Product API demo","version":"1.0.0"},"servers":[{"url":"/"}],"paths":{"/products":{"get":{"description":"Returns all products","responses":{"200":{"description":"successful operation","content":{"application/json; charset=utf-8":{"example":""}}}}},"post":{"description":"Creates a new product","requestBody":{"content":{"application/json":{"example":"{\"id\":\"1234\",\"type\":\"food\",\"price\":42}"}}},"responses":{"200":{"description":"successful operation","content":{"application/json; charset=utf-8":{"example":""}}}}}},"/product/{id}":{"description":"","get":{"description":"Returns a single product","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"successful operation","content":{"application/json; charset=utf-8":{"example":""}}}}},"parameters":[{"name":"lid","in":"path","required":true}]}},"components":{"schemas":{"Product":{"required":["id","name","price"],"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string"},"name":{"type":"string"},"version":{"type":"string"},"price":{"type":"number"}},"additionalProperties":false}}}}</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>/</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:resource name="/products" path="/products" id="1008da53-96b1-4d16-b583-1b6e827ae381">
+      <con:settings />
+      <con:parameters />
+      <con:method name="getAllProducts" id="e15ce003-8cba-4a9b-958c-abdf55c280e9" method="GET">
+        <con:description>Returns all products</con:description>
+        <con:settings />
+        <con:parameters />
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params />
+          <con:description>successful operation</con:description>
+          <con:sampleContent>[ {
+  "id" : "string",
+  "type" : "string",
+  "name" : "string",
+  "version" : "string",
+  "price" : 1.5
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="883b3d98-a161-44f9-9c26-121dfb18a16e" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>/</con:endpoint>
+          <con:request />
+          <con:originalUri>http://localhost/products</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+          <con:parameters />
+          <con:environmentSpec>
+            <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:method name="createProduct" id="8a949dca-f88d-498c-b8a8-bd60c0afd1c8" method="POST">
+        <con:description>Creates a new product</con:description>
+        <con:settings />
+        <con:parameters />
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params />
+          <con:description>successful operation</con:description>
+          <con:sampleContent>{
+  "id" : "string",
+  "type" : "string",
+  "name" : "string",
+  "version" : "string",
+  "price" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params />
+          <con:sampleContent>{"id":"1234","type":"food","price":42}</con:sampleContent>
+        </con:representation>
+        <con:request name="application/json" id="7f6af3d4-ec83-46c7-8992-8c6b491a2c42" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>/</con:endpoint>
+          <con:request>{"id":"03", "name":"foo", "type":"bar" , "price": 99.99, "version": "3"}</con:request>
+          <con:originalUri>http://localhost/products</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+          <con:parameters />
+          <con:environmentSpec>
+            <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/product/{id}" path="/product/{id}" id="d5714c01-1295-4520-9512-5ad58e1dc341">
+      <con:settings />
+      <con:parameters>
+        <con:parameter>
+          <con:name>id</con:name>
+          <con:value>10</con:value>
+          <con:style>TEMPLATE</con:style>
+          <con:default>10</con:default>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="getProductByID" id="e4b4a826-ba6f-4f77-a4c4-8b8ef9d43155" method="GET">
+        <con:description>Returns a single product</con:description>
+        <con:settings />
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:style>TEMPLATE</con:style>
+            <con:description>ID of product to get</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params />
+          <con:description>successful operation</con:description>
+          <con:sampleContent>{
+  "id" : "string",
+  "type" : "string",
+  "name" : "string",
+  "version" : "string",
+  "price" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="22f008fe-44a3-4d6d-a547-02c7b5f69023" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>/</con:endpoint>
+          <con:request />
+          <con:originalUri>http://localhost/product/</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+          <con:parameters>
+            <con:entry key="id" value="10" />
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>id</con:entry>
+          </con:parameterOrder>
+          <con:environmentSpec>
+            <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="9abf98e9-7df7-4f99-a028-855887323377" name="ProductAPITestSuite">
+    <con:description>The test suite generated for the REST service [Product API]</con:description>
+    <con:settings />
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="cc1eb709-1618-491f-9a4e-54dc2111b7ba" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC1" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/products] located at [/products]</con:description>
+      <con:settings />
+      <con:testStep type="restrequest" name="Get Products" id="a2699cf3-7158-4b2e-83a9-0eda70ddde05">
+        <con:settings />
+        <con:config service="Product API" resourcePath="/products" methodName="getAllProducts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get Products" id="883b3d98-a161-44f9-9c26-121dfb18a16e" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request />
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+            <con:parameters />
+            <con:environmentSpec>
+              <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Create Product" id="2f351aed-513d-40d5-a637-82e5d0c0daab">
+        <con:settings />
+        <con:config service="Product API" resourcePath="/products" methodName="createProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Create Product" id="7f6af3d4-ec83-46c7-8992-8c6b491a2c42" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{"id":"03", "name":"foo", "type":"bar" , "price": 99.99, "version": "3"}</con:request>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+            <con:parameters />
+            <con:environmentSpec>
+              <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties />
+      <con:reportParameters />
+    </con:testCase>
+    <con:testCase id="9a8b86c0-d457-4654-9b9b-cf835dd91266" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TC2" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/product/{id}] located at [/product/{id}]</con:description>
+      <con:settings />
+      <con:testStep type="restrequest" name="Request 1" id="e85dafe8-343f-4910-bcf0-9bfc07b25ed9">
+        <con:settings />
+        <con:config service="Product API" resourcePath="/product/{id}" methodName="getProductByID" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="22f008fe-44a3-4d6d-a547-02c7b5f69023" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request />
+            <con:originalUri>http://localhost/product/</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+            <con:parameters>
+              <con:entry key="id" value="10" />
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>id</con:entry>
+            </con:parameterOrder>
+            <con:environmentSpec>
+              <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties />
+      <con:reportParameters />
+    </con:testCase>
+    <con:properties />
+    <con:reportParameters />
+  </con:testSuite>
+  <con:requirements />
+  <con:properties>
+    <con:property>
+      <con:name>id</con:name>
+    </con:property>
+  </con:properties>
+  <con:wssContainer />
+  <con:databaseConnectionContainer />
+  <con:jmsConnectionContainer />
+  <con:oAuth2ProfileContainer />
+  <con:oAuth1ProfileContainer />
+  <con:reporting>
+    <con:xmlTemplates />
+    <con:parameters />
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:environment id="927272a8-a9ed-4248-9b61-e098f007a656" name="localhost" index="0">
+    <con:service type="REST" name="Product API">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://localhost:3001</con:endpoint>
+    </con:service>
+    <con:property>
+      <con:name>id</con:name>
+      <con:value>10</con:value>
+    </con:property>
+    <con:databaseConnectionContainer />
+    <con:jmsConnectionContainer />
+  </con:environment>
+  <con:authRepository />
+  <con:environmentSpec>
+    <con:entry environmentId="927272a8-a9ed-4248-9b61-e098f007a656">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+  <con:tags />
+</con:soapui-project>
