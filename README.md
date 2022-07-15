@@ -40,6 +40,8 @@ It:
 - Is an API written in Express JS
 - Has a ReadyAPI Project (see `Project-1-readyapi-project.xml`) generated from an OpenAPI specification
 - Uses ReadyAPIs API testing capabilities to create test suites/cases from the OpenAPI specification
+- Uses ReadyAPIs test runner, to run the ReadyAPI testing suite in headless mode.
+  - For info see - https://support.smartbear.com/readyapi/docs/functional/running/automating/about.html
 - Uploads the OpenAPI spec and ReadyAPI results to Pactflow
 
 What is uploaded to Pactflow is an OpenAPI specification that represents what you actually tested with ReadyAPI, to give us confidence it is compatible with a Pact consumer.
@@ -59,14 +61,12 @@ The project uses a Makefile to simulate a very simple build pipeline with two st
 When you run the CI pipeline (see below for doing this), the pipeline should perform the following activities (simplified):
 
 - Test
-  - Run tests to check spec compliance with openAPI spec
-  - Create branch tag via Pact CLI
-  - Publish openAPI spec, along with a version with the name of the current branch
+  - Run tests to check provider codebase compliance with openAPI spec
+  - Publishes the openAPI specification and verification results, along with a version and branch name, to Pactflow.
   - Check if we are safe to deploy to Production with `can-i-deploy` (ie. has the cross-contract validation has been successfully performed)
 - Deploy (only from <main|master>)
   - Deploy app to Production
   - Record the Production deployment in the Pact Broker
-  -
 
 ![Provider Pipeline](docs/provider-pipeline.png "Provider Pipeline")
 
