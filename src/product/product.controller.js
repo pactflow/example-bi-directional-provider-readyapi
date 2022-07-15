@@ -5,7 +5,6 @@ const repository = new ProductRepository();
 
 exports.create = async (req, res) => {
   try {
-    console.log(req);
     return res.send(new Product(req.body));
   } catch {
     res.status(400).send({ message: "invalid product" });

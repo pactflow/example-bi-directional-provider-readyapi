@@ -6,9 +6,9 @@ BRANCH?=$(shell git rev-parse --abbrev-ref HEAD)
 ## ====================
 ## Demo Specific Example Variables
 ## ====================
-OAS_PATH=oas/swagger.yml
-REPORT_PATH?=$(shell ls newman/*)
-REPORT_FILE_CONTENT_TYPE?=text/plain
+OAS_PATH=oas/products.yml
+REPORT_PATH?=reports/report.xml
+REPORT_FILE_CONTENT_TYPE?=text/xml
 VERIFIER_TOOL?=readyapi
 
 ## =====================

@@ -3,6 +3,7 @@
 pact
 .idea/
 .vscode
+# reports
 # dependencies
 node_modules/
 .pnp/
