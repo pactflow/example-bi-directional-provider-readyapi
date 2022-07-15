@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "concurrently -k -s \"first\" \"npm start\" \"sleep 3 && npm run test:readyapi\"",
-    "test:readyapi": "/Applications/ReadyAPI-3.30.0.app/Contents/Resources/app/bin/testrunner.sh -sProductAPITestSuite -r -a -j -f/Users/saf/dev/pactflow/example-bi-directional-provider-readyapi/reports '-RJUnit-Style HTML Report' -FXML -Elocalhost /Users/saf/Project-1-readyapi-project.xml",
+    "test": "concurrently -k -s \"first\" \"npm start\" \"sleep 3 && make test-readyapi\"",
     "test:publish": "EXIT_CODE=0 make publish_provider_contract"
   },
   "dependencies": {

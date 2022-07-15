@@ -10,6 +10,7 @@ OAS_PATH=oas/products.yml
 REPORT_PATH?=reports/report.xml
 REPORT_FILE_CONTENT_TYPE?=text/xml
 VERIFIER_TOOL?=readyapi
+READY_RUNNER_PATH?=/Applications/ReadyAPI-3.30.0.app/Contents/Resources/app/bin/
 
 ## =====================
 ## Build/test tasks
@@ -22,6 +23,8 @@ test:
 	@echo "Running readyapi tests against locally running provider"
 	@npm run test
 
+test-readyapi:
+	${READY_RUNNER_PATH}/testrunner.sh -sProductAPITestSuite -r -a -j -f${PWD}/reports '-RJUnit-Style HTML Report' -FXML -Elocalhost ${PWD}/Project-1-readyapi-project.xml
 
 ## ====================
 ## CI tasks
