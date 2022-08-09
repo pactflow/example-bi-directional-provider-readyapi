@@ -38,7 +38,7 @@ See the full [Pactflow Bi-Directional Workshop](https://docs.pactflow.io/docs/wo
 It:
 
 - Is an API written in Express JS
-- Has a ReadyAPI Project (see `Project-1-readyapi-project.xml`) generated from an OpenAPI specification
+- Has a ReadyAPI Project (see `pf-swh-rapi-demo-readyapi-project.xml`) generated from an OpenAPI specification
 - Uses ReadyAPIs API testing capabilities to create test suites/cases from the OpenAPI specification
 - Uses ReadyAPIs test runner, to run the ReadyAPI testing suite in headless mode.
   - For info see - https://support.smartbear.com/readyapi/docs/functional/running/automating/about.html
