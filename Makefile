@@ -25,7 +25,6 @@ test:
 	@echo "\n========== STAGE: test ✅ ==========\n"
 	@echo "Running readyapi tests against locally running provider"
 	@npm run test
-# @mkdir project/reports && chmod ugo+rwx project/reports && npm run test
 
 test-readyapi:
 	${READY_RUNNER_PATH}

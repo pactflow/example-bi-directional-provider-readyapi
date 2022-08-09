@@ -23,6 +23,8 @@ jobs:
           node-version: 16
       - name: 📦️ Install
         run: npm i
+      - name: set reports folder permissions for readyapi runner
+        run: chmod ugo+rwx project/reports 
       - name: 🧪 Test and upload to Pactflow 📈
         run: BRANCH=${GITHUB_REF:11} make test_and_publish
 
