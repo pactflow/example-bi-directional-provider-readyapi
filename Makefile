@@ -7,10 +7,13 @@ BRANCH?=$(shell git rev-parse --abbrev-ref HEAD)
 ## Demo Specific Example Variables
 ## ====================
 OAS_PATH=oas/products.yml
-REPORT_PATH?=reports/report.xml
+REPORT_PATH?=project/reports/report.xml
 REPORT_FILE_CONTENT_TYPE?=text/xml
 VERIFIER_TOOL?=readyapi
-READY_RUNNER_PATH?=/Applications/ReadyAPI-3.30.0.app/Contents/Resources/app/bin/
+# Mac
+# ENDPOINT:=http://host.docker.internal:3001
+ENDPOINT:=http://localhost:3001
+READY_RUNNER_PATH?=docker run --rm -v=${PWD}/project:/project -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
 
 ## =====================
 ## Build/test tasks
@@ -24,7 +27,7 @@ test:
 	@npm run test
 
 test-readyapi:
-	${READY_RUNNER_PATH}/testrunner.sh -sProductAPITestSuite -r -a -j -f${PWD}/reports '-RJUnit-Style HTML Report' -FXML -Elocalhost ${PWD}/Project-1-readyapi-project.xml
+	${READY_RUNNER_PATH}
 
 ## ====================
 ## CI tasks
