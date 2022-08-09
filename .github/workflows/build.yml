@@ -2,7 +2,6 @@ name: Test & Upload to Pactflow
 
 on:
   push: 
-    branches: [ 'rapi_gh' ]
   workflow_dispatch:
 
 env:
