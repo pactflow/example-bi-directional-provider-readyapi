@@ -13,7 +13,7 @@ VERIFIER_TOOL?=readyapi
 # Mac
 # ENDPOINT:=http://host.docker.internal:3001
 ENDPOINT:=http://localhost:3001
-READY_RUNNER_PATH?=docker run --rm --network="host" -v=${PWD}/project:/project -v=${PWD}/project/reports:/reports -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
+READY_RUNNER_PATH?=docker run --rm --network="host" -v=${PWD}/project:/project -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
 
 ## =====================
 ## Build/test tasks
