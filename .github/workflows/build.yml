@@ -10,6 +10,7 @@ env:
   PACT_BROKER_PUBLISH_VERIFICATION_RESULTS: true
   VERSION: ${{ github.sha }}
   GITHUB_REF: ${{ github.ref }}
+  SLM_API_KEY: ${{ secrets.SLM_API_KEY }}
 
 jobs:
   test:
