@@ -24,7 +24,7 @@ install: npm install
 test: 
 	@echo "\n========== STAGE: test ✅ ==========\n"
 	@echo "Running readyapi tests against locally running provider"
-	@npm run test
+	@mkdir project/reports && npm run test
 
 test-readyapi:
 	${READY_RUNNER_PATH}
