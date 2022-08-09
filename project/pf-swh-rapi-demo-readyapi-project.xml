@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="057db1cd-d7a2-4205-a8db-0067cf267dd3" created="3.40.2" activeEnvironment="Default environment" name="pf-swh-rapi-demo" updated="3.40.2 2022-07-27T09:18:31Z" encryptionMode="Not encrypted" resourceRoot="${projectDir}" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value="https://virtserver.swaggerhub.com/YOU54F/webinar-demo/1.0.0"/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="pf-swh-rapi-demo Test Suite 1"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="/Applications/ReadyAPI-3.40.2.app/Contents/Resources/app/bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+    <con:setting id="057db1cd-d7a2-4205-a8db-0067cf267dd3fileName">Project-1-readyapi-project</con:setting>
+    <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerUIAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Settings File Password" value=""/>
+  <con:entry key="Report Format(s)" value="XML"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="Export JUnit Results" value="true"/>
+  <con:entry key="Export All" value="true"/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Slack Channel(s)" value=""/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Endpoint" value="http://localhost:8080"/>
+  <con:entry key="Test Suite Tags" value=""/>
+  <con:entry key="Select Report Type" value="JUnit-Style report for automation"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Test Suite" value="&lt;all>"/>
+  <con:entry key="Run in-process" value="false"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="Print Report" value="true"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Test Case Tags" value=""/>
+  <con:entry key="Export JUnit Results with test properties" value="false"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Test Case" value="&lt;all>"/>
+  <con:entry key="Slack Access Token" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="TestRunner Path" value="/Applications/ReadyAPI-3.40.2.app/Contents/Resources/app/bin"/>
+  <con:entry key="Environment" value="No Environment"/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Save Project" value="false"/>
+</xml-fragment>]]></con:setting>
+  </con:settings>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:xmlTemplates xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+    <con:parameters/>
+  </con:reporting>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository/>
+  <con:tags/>
+  <con:interface xsi:type="con:RestService" id="4b04dc2d-30e4-4120-b92a-51b2639ec5c5" name="pf-swh-rapi-demo" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="https://api.swaggerhub.com/apis/YOU54F/webinar-demo/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description>a demo of pactflow / swaggerhub / readyapi</con:description>
+    <con:settings>
+      <con:setting id="4b04dc2d-30e4-4120-b92a-51b2639ec5c5fileName">pf-swh-rapi-demo</con:setting>
+    </con:settings>
+    <con:definitionCache type="TEXT" rootPart="https://api.swaggerhub.com/apis/YOU54F/webinar-demo/1.0.0">
+      <con:part>
+        <con:url>https://api.swaggerhub.com/apis/YOU54F/webinar-demo/1.0.0</con:url>
+        <con:content>{"openapi":"3.0.1","info":{"title":"pf-swh-rapi-demo","description":"a demo of pactflow / swaggerhub / readyapi ","version":"1.0.0"},"servers":[{"url":"https://virtserver.swaggerhub.com/YOU54F/webinar-demo/1.0.0","description":"SwaggerHub API Auto Mocking"},{"url":"http://localhost:8080","description":"SwaggerHub API Localhost"}],"tags":[{"name":"product_model","description":"&lt;SchemaDefinition schemaRef=\"#/components/schemas/Product\" />\n","x-displayName":"The Product Model"}],"paths":{"/product/{id}":{"get":{"description":"Returns a single product","parameters":[{"name":"id","in":"path","required":true,"style":"simple","explode":false,"schema":{"type":"string"}}],"responses":{"200":{"description":"successful operation","content":{"application/json; charset=utf-8":{"example":""}}}}}},"/products":{"description":"","get":{"description":"Returns all products","responses":{"200":{"description":"successful operation","content":{"application/json; charset=utf-8":{"example":""}}}}},"post":{"description":"Creates a new product","requestBody":{"content":{"application/json":{"example":"{\"id\":\"1234\",\"type\":\"food\",\"price\":42}"}}},"responses":{"200":{"description":"successful operation","content":{"application/json; charset=utf-8":{"example":""}}}}}}},"components":{"schemas":{"Product":{"required":["id","name","price"],"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string"},"name":{"type":"string"},"version":{"type":"string"},"price":{"type":"number"}},"additionalProperties":false},"inline_response_200":{"oneOf":[{"$ref":"#/components/schemas/Product"}]}}}}</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8080</con:endpoint>
+      <con:endpoint>https://virtserver.swaggerhub.com/YOU54F/webinar-demo/1.0.0</con:endpoint>
+    </con:endpoints>
+    <con:resource name="/product/{id}" path="/product/{id}" id="6e2eebbf-e002-463f-8ac1-d9a5118af02d">
+      <con:settings>
+        <con:setting id="6e2eebbf-e002-463f-8ac1-d9a5118af02dfileName">%2Fproduct%2F%7Bid%7D</con:setting>
+      </con:settings>
+      <con:parameters/>
+      <con:method name="getProductByID" id="ec16ccf8-7140-4bc2-8b54-853430d4ff62" method="GET">
+        <con:description>Returns a single product</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>id</con:name>
+            <con:style>TEMPLATE</con:style>
+            <con:description>ID of product to get</con:description>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>successful operation</con:description>
+          <con:sampleContent>{
+  "id" : "string",
+  "type" : "string",
+  "name" : "string",
+  "version" : "string",
+  "price" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="0b50a0ba-9a6e-4ae5-8ee0-c2b074eb0e01" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8080</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://localhost/product/</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="/products" path="/products" id="2965284a-e05f-4167-97d5-b9a146df5dbc">
+      <con:settings>
+        <con:setting id="2965284a-e05f-4167-97d5-b9a146df5dbcfileName">%2Fproducts</con:setting>
+      </con:settings>
+      <con:parameters/>
+      <con:method name="getAllProducts" id="f6dd88e8-350c-40bc-8c1d-a397a4915de0" method="GET">
+        <con:description>Returns all products</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>successful operation</con:description>
+          <con:sampleContent>[ {
+  "id" : "string",
+  "type" : "string",
+  "name" : "string",
+  "version" : "string",
+  "price" : 1.5
+} ]</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="c169d6e2-ab7c-47f8-a1e6-6711155e9bf2" mediaType="application/json">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8080</con:endpoint>
+          <con:request/>
+          <con:originalUri>http://localhost/products</con:originalUri>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+      <con:method name="createProduct" id="33578ccf-910c-443f-9d5c-ada9553689e0" method="POST">
+        <con:description>Creates a new product</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>successful operation</con:description>
+          <con:sampleContent>{
+  "id" : "string",
+  "type" : "string",
+  "name" : "string",
+  "version" : "string",
+  "price" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{"id":"1234","type":"food","price":42}</con:sampleContent>
+        </con:representation>
+        <con:request name="application/json" id="d9e7ca8d-e297-424b-9425-f7b1b043e115" mediaType="application/json" postQueryString="false">
+          <con:settings/>
+          <con:endpoint>http://localhost:8080</con:endpoint>
+          <con:request>{"id":"1234","type":"food","price":42}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="91afa809-e0a7-4465-a2f6-5d1659923654" name="pf-swh-rapi-demo Test Suite 1">
+    <con:description>The test suite generated for the REST service [pf-swh-rapi-demo]</con:description>
+    <con:settings>
+      <con:setting id="91afa809-e0a7-4465-a2f6-5d1659923654fileName">pf-swh-rapi-demo-Test-Suite-1</con:setting>
+    </con:settings>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:properties/>
+    <con:reportParameters/>
+    <con:testCase id="b64146a6-ac43-49e6-95fb-de4d1a289744" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/products Test Case" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/products] located at [/products]</con:description>
+      <con:settings>
+        <con:setting id="b64146a6-ac43-49e6-95fb-de4d1a289744fileName">%2Fproducts-Test-Case</con:setting>
+      </con:settings>
+      <con:testStep type="restrequest" name="GET all products" id="0e15ba53-90d9-44bd-8e5e-5a7184195655">
+        <con:settings/>
+        <con:config service="pf-swh-rapi-demo" resourcePath="/products" methodName="getAllProducts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="GET all products" id="c169d6e2-ab7c-47f8-a1e6-6711155e9bf2" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:3001</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="DataAndMetadataAssertion" id="7a93c3c0-d38e-4919-8ffb-52c3cc289ff7" name="Smart Assertion">
+              <con:configuration xsi:type="con:DataAndMetadataAssertion">
+                <con:mode>Received Data</con:mode>
+                <con:elements>
+                  <con:path>$[0]['id']</con:path>
+                  <con:element>id</con:element>
+                  <con:operatorId>16</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>1234</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[0]['type']</con:path>
+                  <con:element>type</con:element>
+                  <con:operatorId>16</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>food</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[0]['price']</con:path>
+                  <con:element>price</con:element>
+                  <con:operatorId>16</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>42</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>true</con:numberType>
+                  <con:expectedDataType>2</con:expectedDataType>
+                </con:elements>
+                <con:originalMessage>[ {
+  "id" : "1234",
+  "type" : "food",
+  "price" : 42
+} ]</con:originalMessage>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="POST new product" id="d9ccbf73-41a4-4c86-9635-0cb18942c32e">
+        <con:settings/>
+        <con:config service="pf-swh-rapi-demo" resourcePath="/products" methodName="createProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="POST new product" id="d9e7ca8d-e297-424b-9425-f7b1b043e115" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:3001</con:endpoint>
+            <con:request>{"id":"1234","type":"food","price":42, "name":"foo", "version": "1.0.0"}</con:request>
+            <con:originalUri>http://localhost/products</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="69140df6-cb1e-4141-a4bb-2f2da7e4d712" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:testCase id="2f2cda34-3c88-471c-a81b-8a69e1a11160" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/product/{id} Test Case" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/product/{id}] located at [/product/{id}]</con:description>
+      <con:settings>
+        <con:setting id="2f2cda34-3c88-471c-a81b-8a69e1a11160fileName">%2Fproduct%2F%7Bid%7D-Test-Case</con:setting>
+      </con:settings>
+      <con:testStep type="restrequest" name="Request 1" id="633d5810-2cd5-4ee0-9717-d8861bb036d4">
+        <con:settings/>
+        <con:config service="pf-swh-rapi-demo" resourcePath="/product/{id}" methodName="getProductByID" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="0b50a0ba-9a6e-4ae5-8ee0-c2b074eb0e01" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:3001</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/product/</con:originalUri>
+            <con:assertion type="DataAndMetadataAssertion" id="9fac8c1e-ed53-4999-b55e-9a02de95cdc2" name="Smart Assertion">
+              <con:configuration xsi:type="con:DataAndMetadataAssertion">
+                <con:mode>Received Data</con:mode>
+                <con:elements>
+                  <con:path>$['id']</con:path>
+                  <con:element>id</con:element>
+                  <con:operatorId>16</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>1234</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$['type']</con:path>
+                  <con:element>type</con:element>
+                  <con:operatorId>16</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>food</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$['price']</con:path>
+                  <con:element>price</con:element>
+                  <con:operatorId>16</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>42</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>true</con:numberType>
+                  <con:expectedDataType>2</con:expectedDataType>
+                </con:elements>
+                <con:originalMessage>{
+  "id" : "1234",
+  "type" : "food",
+  "price" : 42
+}</con:originalMessage>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="id" value="09"/>
+            </con:parameters>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+  </con:testSuite>
+</con:soapui-project>
