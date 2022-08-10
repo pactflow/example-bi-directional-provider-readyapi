@@ -12,7 +12,7 @@ REPORT_FILE_CONTENT_TYPE?=text/xml
 VERIFIER_TOOL?=readyapi
 # Mac
 # ENDPOINT:=http://host.docker.internal:3001
-ENDPOINT:=http://localhost:3001
+ENDPOINT?=http://localhost:3001
 READY_RUNNER_PATH?=docker run --rm --network="host" -v=${PWD}/project:/project -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
 
 ## =====================
@@ -26,8 +26,13 @@ test:
 	@echo "Running readyapi tests against locally running provider"
 	@npm run test
 
+
 test-readyapi:
-	${READY_RUNNER_PATH}
+	case "${detected_OS}" in \
+		Windows|MSYS) ENDPOINT=http://host.docker.internal:3001 ${READY_RUNNER_PATH};; \
+		Darwin) ENDPOINT=http://host.docker.internal:3001 ${READY_RUNNER_PATH};; \
+		Linux) ${READY_RUNNER_PATH};; \
+	esac
 
 ## ====================
 ## CI tasks
