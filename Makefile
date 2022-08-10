@@ -10,10 +10,20 @@ OAS_PATH=oas/products.yml
 REPORT_PATH?=project/reports/report.xml
 REPORT_FILE_CONTENT_TYPE?=text/xml
 VERIFIER_TOOL?=readyapi
-# Mac
-# ENDPOINT:=http://host.docker.internal:3001
 ENDPOINT?=http://localhost:3001
-READY_RUNNER_PATH?=docker run --rm --network="host" -v=${PWD}/project:/project -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
+# Docker command tested against linux(GH actions) / macosx locally
+# Needs testing on windows
+READY_RUNNER_DOCKER_PATH?=docker run --rm --network="host" -v=${PWD}/project:/project -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
+# RAPI_RUNNER can be set to local ReadyAPI installation if available, otherwise will default to docker
+# RAPI_RUNNER=local
+READY_API_LOCAL_INSTALLATION_PATH_MAC?=/Applications/ReadyAPI-3.40.2.app/Contents/Resources/app/bin/testrunner.sh
+# Default installation paths for Linux/Windows to be added/tested
+READY_API_LOCAL_INSTALLATION_PATH_LINUX?=TODO
+READY_API_LOCAL_INSTALLATION_PATH_WIN?=TODO
+READY_RUNNER_LOCAL_PATH_MAC?=${READY_API_LOCAL_INSTALLATION_PATH_MAC} -e${ENDPOINT} -f${PWD}/project/reports '-RJUnit-Style HTML Report' ${PWD}/project/pf-swh-rapi-demo-readyapi-project.xml
+# Commands need testing cross platform
+READY_RUNNER_LOCAL_PATH_LINUX?=${READY_API_LOCAL_INSTALLATION_PATH_LINUX} -e${ENDPOINT} -f${PWD}/project/reports '-RJUnit-Style HTML Report' ${PWD}/project/pf-swh-rapi-demo-readyapi-project.xml
+READY_RUNNER_LOCAL_PATH_WIN?=${READY_API_LOCAL_INSTALLATION_PATH_WIN} -e${ENDPOINT} -f${PWD}/project/reports '-RJUnit-Style HTML Report' ${PWD}/project/pf-swh-rapi-demo-readyapi-project.xml
 
 ## =====================
 ## Build/test tasks
@@ -28,12 +38,18 @@ test:
 
 
 test-readyapi:
-	case "${detected_OS}" in \
-		Windows|MSYS) ENDPOINT=http://host.docker.internal:3001 ${READY_RUNNER_PATH};; \
-		Darwin) ENDPOINT=http://host.docker.internal:3001 ${READY_RUNNER_PATH};; \
-		Linux) ${READY_RUNNER_PATH};; \
+	case "${RAPI_RUNNER}" in \
+		local) 	case "${detected_OS}" in \
+					Windows|MSYS) ${READY_RUNNER_LOCAL_PATH_WIN};; \
+					Darwin) ${READY_RUNNER_LOCAL_PATH_MAC};; \
+					Linux) ${READY_RUNNER_LOCAL_PATH_LINUX};; \
+				esac;; \
+		*) 	case "${detected_OS}" in \
+				Windows|MSYS) ENDPOINT=http://host.docker.internal:3001 ${READY_RUNNER_DOCKER_PATH};; \
+				Darwin) ENDPOINT=http://host.docker.internal:3001 ${READY_RUNNER_DOCKER_PATH};; \
+				Linux) ${READY_RUNNER_DOCKER_PATH};; \
+			esac;; \
 	esac
-
 ## ====================
 ## CI tasks
 ## ====================

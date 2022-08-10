@@ -40,8 +40,8 @@ It:
 - Is an API written in Express JS
 - Has a ReadyAPI Project (see `pf-swh-rapi-demo-readyapi-project.xml`) generated from an OpenAPI specification
 - Uses ReadyAPIs API testing capabilities to create test suites/cases from the OpenAPI specification
-- Uses ReadyAPIs test runner, to run the ReadyAPI testing suite in headless mode.
-  - For info see - https://support.smartbear.com/readyapi/docs/functional/running/automating/about.html
+- Uses ReadyAPIs dockerised test runner, to run the ReadyAPI testing suite in headless mode.
+  - For info see - https://support.smartbear.com/readyapi/docs/integrations/docker/soapui.html
 - Uploads the OpenAPI spec and ReadyAPI results to Pactflow
 
 What is uploaded to Pactflow is an OpenAPI specification that represents what you actually tested with ReadyAPI, to give us confidence it is compatible with a Pact consumer.
