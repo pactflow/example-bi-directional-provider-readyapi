@@ -10,6 +10,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    steps:
       - name: Trigger docs.pactflow.io update workflow
         run: |
           curl -X POST https://api.github.com/repos/pactflow/docs.pactflow.io/dispatches \
