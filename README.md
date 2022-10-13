@@ -147,4 +147,4 @@ They can be run locally on Unix/Windows and MacOS, or on Windows via [WSL2](http
 
 ## Found an issue?
 
-Reach out via a GitHub Issue, or reach us over in the [Pact foundation Slack](https://slack.pact.io) 
+Reach out via a GitHub Issue, or reach us over in the [Pact foundation Slack](https://slack.pact.io)
