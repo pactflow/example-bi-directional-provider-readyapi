@@ -112,7 +112,10 @@ can_i_deploy:
 	${PACT_BROKER_COMMAND} can-i-deploy \
 	--pacticipant ${PACTICIPANT} \
 	--version ${VERSION} \
-	--to-environment production
+	--to-environment production \
+	--retry-while-unknown 0 \
+	--retry-interval 10
+
 
 deploy_app:
 	@echo "\n========== STAGE: deploy 🚀 ==========\n"
