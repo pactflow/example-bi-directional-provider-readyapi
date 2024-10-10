@@ -16,7 +16,7 @@ ENDPOINT?=http://localhost:3001
 READY_RUNNER_DOCKER_PATH?=docker run --rm --network="host" -v=${PWD}/project:/project -e SLM_LICENSE_SERVER="https://api.slm.manage.smartbear.com:443" -e API_KEY=${SLM_API_KEY} -e ENDPOINT=${ENDPOINT} -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project/reports' '-RJUnit-Style HTML Report' /project/pf-swh-rapi-demo-readyapi-project.xml" smartbear/ready-api-soapui-testrunner:latest
 # RAPI_RUNNER can be set to local ReadyAPI installation if available, otherwise will default to docker
 # RAPI_RUNNER=local
-READY_API_LOCAL_INSTALLATION_PATH_MAC?=/Applications/ReadyAPI-3.40.2.app/Contents/Resources/app/bin/testrunner.sh
+READY_API_LOCAL_INSTALLATION_PATH_MAC?=/Applications/ReadyAPI-3.55.0.app/Contents/Resources/app/bin/testrunner.sh
 # Default installation paths for Linux/Windows to be added/tested
 READY_API_LOCAL_INSTALLATION_PATH_LINUX?=TODO
 READY_API_LOCAL_INSTALLATION_PATH_WIN?=TODO
