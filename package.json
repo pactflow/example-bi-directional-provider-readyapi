@@ -16,7 +16,7 @@
   "devDependencies": {
     "axios": "1.7.9",
     "concurrently": "9.1.2",
-    "dotenv": "16.4.5",
+    "dotenv": "16.4.7",
     "eslint": "9.20.1"
   },
   "license": "ISC"
